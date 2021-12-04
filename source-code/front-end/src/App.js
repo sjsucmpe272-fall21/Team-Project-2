@@ -6,11 +6,11 @@ import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import Landing from './components/landing';
 import Login from './components/user/login';
 import Signup from './components/user/signup';
-
+import Cards from './components/cards';
 import Waiting from './components/waiting';
 import axios from 'axios';
 import { uploadFile } from 'react-s3';
-import aws from './keys'
+import { Card } from '@material-ui/core';
 //  const config = {
 //     bucketName: '272projectgroup2',
 //     dirName: 'Resume', 
@@ -85,7 +85,8 @@ export default class PersonList extends React.Component {
           <Route exact path="/" element={<Landing/>} />
           <Route exact path="/login" element={<Login/>}/>
           <Route exact path="/signup" element={<Signup/>}/>
-          <Route exact path="/wait" element={<Waiting/>}/>
+          <Route exact path="/wait" element={<Waiting />} />
+          <Route exact path="/cards" element={<Cards/>}/>
           </Routes>
         </Router>
     )
