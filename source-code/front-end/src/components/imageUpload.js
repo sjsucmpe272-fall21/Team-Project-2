@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
-
 import S3FileUpload from 'react-s3';
+import aws from './keys'
 
 const config = {
-    bucketName: '272projectgroup2',
-    dirName: 'Resume', 
+    bucketName: 'reskill-bucket',
+    
     region: 'us-east-1',
-    accessKeyId: 'AKIARXSDAEBF3GIDK2VY',
-    secretAccessKey: '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',
+    accessKeyId: aws.accessKeyId,
+    secretAccessKey: aws.secretAccessKey,
 }
 
 export default class imageUpload extends Component {
