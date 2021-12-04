@@ -33,7 +33,7 @@ public class JobController {
         log.info("Entering getJobsByAllParams Api");
         Object resp = null;
         try {
-            log.info("Input to API is:{}",jobParams);
+            log.info("Input to getJobsByAllParams API is:{}",jobParams);
             resp = jobService.getJobs(jobParams);
             if(resp!=null && resp.getClass().equals(AsyncParams.class)){
                 jobService.doAsyncScrape((AsyncParams) resp);
@@ -41,8 +41,6 @@ public class JobController {
             }
         } catch (Exception e) {
             log.error("Error occured in getJobsByAllParams :{}", e);
-            log.error("Error message is :{}",e.getMessage());
-            log.error("Error message is :{}",e.getLocalizedMessage());
             return ResponseEntity.status(400).body(e.getMessage());
         } finally {
             log.info("Exiting getJobsByAllParams Api");
@@ -56,6 +54,7 @@ public class JobController {
         log.info("Entering getJobsByToken Api");
         Object s = null;
         try {
+            log.info("Input to getJobsByToken API is:{}",token);
             s = jobService.getJobsByToken(token);
         } catch (Exception e) {
             log.error("Error occured in getJobsByToken :{}", e);

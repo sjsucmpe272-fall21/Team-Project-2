@@ -32,4 +32,5 @@ public class JobPostings {
     private String location;
     @Transient
     private BigDecimal simscore;
+
 }

@@ -16,20 +16,23 @@ public class KeywordMatcher {
 
 
     public String extractKeywords(String text){
-        String keywordsStr = null;
-        log.info("text input is :{}",text);
-        text = text.replaceAll("[^a-zA-Z+3#]"," ");
+        String keywordsStr = "";
+       // log.info("text input is :{}",text);
+        if(text!= null) {
 
-        log.info("text after regex is :{}",text);
-        List<String> splitText = new ArrayList<>();
-        splitText = Arrays.asList(text.toLowerCase().split(" "));
-        log.info("text after lower split is :{}",text);
-        TreeSet<String> keywords = new TreeSet<>();
-       log.info("split text is :{}",splitText);
-        keywords = new TreeSet<>(splitText.parallelStream().filter(t->!KeywordConstants.stopwords.contains(t) && KeywordConstants.overall_dict.contains(t)).collect(Collectors.toSet()));
-        log.info("text after keywords is :{}",keywords);
-        keywordsStr = String.join(" ", keywords);
-        log.info("text after keywordsStr is :{}",keywordsStr);
+            text = text.replaceAll("[^a-zA-Z+3#]", " ");
+
+            // log.info("text after regex is :{}",text);
+            List<String> splitText = new ArrayList<>();
+            splitText = Arrays.asList(text.toLowerCase().split(" "));
+            // log.info("text after lower split is :{}",text);
+            TreeSet<String> keywords = new TreeSet<>();
+            //log.info("split text is :{}",splitText);
+            keywords = new TreeSet<>(splitText.parallelStream().filter(t -> !KeywordConstants.stopwords.contains(t) && KeywordConstants.overall_dict.contains(t)).collect(Collectors.toSet()));
+            // log.info("text after keywords is :{}",keywords);
+            keywordsStr = String.join(" ", keywords);
+           // log.info("text after keywordsStr is :{}", keywordsStr);
+        }
         return  keywordsStr;
     }
 
@@ -64,8 +67,8 @@ public class KeywordMatcher {
 
             String joined = String.join(" ", jobPosting.getKeywords());
             BigDecimal sim = BigDecimal.valueOf(c.similarity(joined,resumeKeywords));
-            log.info("Sim is :{}",sim);
-            log.info("simscore is :{}",sim.multiply(ten).toString());
+           // log.info("Sim is :{}",sim);
+           // log.info("simscore is :{}",sim.multiply(ten).toString());
             jobPosting.setSimscore(sim.multiply(ten));
         }
         jobPostingsList.sort((o1,o2)-> {
