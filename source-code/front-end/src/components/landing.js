@@ -8,8 +8,7 @@ import { AppBar, Button, Card, Container, TextField, Typography } from '@materia
 import  {makeStyles}  from '@material-ui/core/';
 import bg_img from './bgimg.jpg'
 import LogoutIcon from '@mui/icons-material/Logout';
-import { width } from '@mui/system';
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Cards from './cards';
 import '../App.css';
 const style = {
@@ -58,7 +57,7 @@ export default function Landing() {
     const [items, setItems] = useState([]);
     const [job, setJob] = useState('');
     const [score, setScore] = useState(25);
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
 
     const Classes = useStyles()
     const handleChange = event => {
@@ -96,22 +95,44 @@ export default function Landing() {
                 }
             })
               .then(res => {
-                console.log(res.token);
-                console.log(res);
-                  setItems(res.data)
-                  let sum = 0;
-                  for (let i = 0; i < res.data.length; i++){
-                      sum = sum + res.data.simscore
-                      console.log(res.data[i])
+                  console.log(res.token);
+                  if (res.token) {
+                      localStorage.setItem("token", res.token)
+                      navigate('/wait')
+                      
+                  } else {
+                      console.log(res);
+                      setItems(res.data)
+                      let sum = 0;
+                      for (let i = 0; i < res.data.length; i++) {
+                          sum = sum + res.data.simscore
+                          console.log(res.data[i])
+                      }
+                      let avg = sum / res.data.length
+                      setScore(avg)
                   }
-                  let avg = sum / res.data.length
-                  setScore(avg)
               })
             // navigate('/results')
           }
     
-        const uplaod = e => {
+
+
+//     const uploadImage = () => {
+//         const formData = new FormData();
+//         formData.append( 
+//         "file", 
+//         this.state.selectedFile, 
+//             this.state.selectedFile.name,
     
+//         ).append("location":location, );
+//         axios.post("api/uploadfile", formData); 
+// }
+
+
+
+
+        const uplaod = e => {
+    console.log(e.target.files[0])
 
             console.log(e.target.files[0].name);
             let fileName = e.target.files[0].name;
@@ -161,17 +182,6 @@ export default function Landing() {
         const diff = difference(setA,setB);
       
     
-    console.log("&&**&&**&&**&&",diff);
-  })
-
-
-  
-
-    
-    
-
-}
-
     
                     console.log("&&**&&**&&**&&", diff);
 

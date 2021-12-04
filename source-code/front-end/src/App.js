@@ -2,7 +2,7 @@ import  './App.css';
 import React from 'react';
 
 
-import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import Landing from './components/landing';
 import Login from './components/user/login';
 import Signup from './components/user/signup';
@@ -78,46 +78,15 @@ const answer=
 export default class PersonList extends React.Component {
   
 
-
-
-
-
-// <<<<<<< temp
-//    ///myArray = [];
- 
-// =======
-//     const user = {
-//       name: this.state.name
-//     };
-//     console.log(user);
-//     axios.get(`https://jsonplaceholder.typicode.com/users`, { user })
-//       .then(res => {
-//         console.log(res);
-//         console.log(res.data);
-//         console.log(answer.length);
-//         this.setState({ items: res.data });
-//         console.log('-->',this.state.items);
-//       })
-//   }
-// >>>>>>> main
-
   render() {
     return (
        <Router>
-        <Switch>
-          <Route exact path="/">
-                <Landing/>
-          </Route>
-          <Route exact path="/login">
-                <Login/>
-          </Route>
-          <Route exact path="/signup">
-                <Signup/>
-          </Route>
-          <Route exact path="/wait">
-                <Waiting/>
-                </Route>
-          </Switch>
+        <Routes>
+          <Route exact path="/" element={<Landing/>} />
+          <Route exact path="/login" element={<Login/>}/>
+          <Route exact path="/signup" element={<Signup/>}/>
+          <Route exact path="/wait" element={<Waiting/>}/>
+          </Routes>
         </Router>
     )
   }
