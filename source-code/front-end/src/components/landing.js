@@ -4,7 +4,24 @@ import config from '../util';
 import  {useState} from "react";
 import Cards from './cards';
 import '../App.css';
-
+const answer=
+    {
+        "userskills": " c c++   php python pytorch r reactjs tableau test test2",
+        "jobPostingsList": [
+            {
+                "id": 448,
+                "desc": null,
+                "company": "AvalonBay Communities",
+                "link": "https://www.indeed.com/company/AvalonBay-Communities/jobs/Operation-Analyst-At-Avalonbay-2d8cfcd815d1939a?fccid=ea274bc155efcba8&vjs=3",
+                "salary": "From $90,000 a year - Full-time",
+                "role": "Business Analyst",
+                "title": "Hiring Now!* Operations Analyst Needed at AvalonBay in San jose",
+                "keywords": "angular c c++ excel ",
+                "location": "San Jose,CA",
+                "simscore": 20.85144140570747700
+            }
+        ]
+    };
 export default function Landing() {
     const [name, setName] = useState('');
     const [location, setLocation] = useState('');
@@ -19,6 +36,9 @@ const handleChange2 = event => {
     this.setState({ location: event.target.value });
     
   }
+
+
+  
 
 const  onFromSubmit = event => {
     event.preventDefault();
@@ -46,12 +66,47 @@ const  onFromSubmit = event => {
     //   this.setState({ resumeUrl: data.location });
       setResumeURL(data.location);
       console.log('-->', setResumeURL);
+      const setA = answer.jobPostingsList.keywords.split(" ");
+      const setB = answer.userskills.split(" ");
+      const diff = function difference(setA, setB) {
+        let _difference = new Set(setA)
+        for (let elem of setB) {
+            _difference.delete(elem)
+        }
+        return _difference
+
+    }
+    
+    console.log("&&**&&**&&**&&",diff);
       
   })
   .catch((err)=>{
     alert('Inside this');
       alert(err);
+
+
+      const setA = answer.jobPostingsList[0].keywords.split(" ");
+      const setB = answer.userskills.split(" ");
+      function difference(setB, setA){
+        let _difference = new Set(setA)
+        for (let elem of setB) {
+            _difference.delete(elem)
+        }
+        return _difference
+
+        }
+        const diff = difference(setA,setB);
+      
+    
+    console.log("&&**&&**&&**&&",diff);
   })
+
+
+  
+
+    
+    
+
 }
     
     return (
