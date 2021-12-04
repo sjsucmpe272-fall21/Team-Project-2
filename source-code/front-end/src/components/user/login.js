@@ -99,7 +99,7 @@ export default function Login() {
             </Grid>
             </Box>
             <Grid item>
-            <Button onClick={loginUser} className={Classes.button1} variant="contained" color="success">
+            <Button onClick={loginUser} className={Classes.button1} variant="contained" style={{backgroundColor:"black"}}>
                 Login
             </Button>
             </Grid>
