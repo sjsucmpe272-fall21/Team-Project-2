@@ -7,6 +7,7 @@ import Landing from './components/landing';
 import Login from './components/user/login';
 import Signup from './components/user/signup';
 
+import Waiting from './components/waiting';
 import axios from 'axios';
 import { uploadFile } from 'react-s3';
 import aws from './keys'
@@ -17,6 +18,7 @@ import aws from './keys'
 //     accessKeyId: aws.accessKeyId,
 //     secretAccessKey: aws.secretAccessKey
 // }
+
 
 // import imageUpload from './components/imageUpload';
   
@@ -111,6 +113,9 @@ export default class PersonList extends React.Component {
           </Route>
           <Route exact path="/signup">
                 <Signup/>
+          </Route>
+          <Route exact path="/wait">
+                <Waiting/>
                 </Route>
           </Switch>
         </Router>
