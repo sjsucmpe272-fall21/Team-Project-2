@@ -1,7 +1,7 @@
 
 const aws={
-    "secretAccessKey": "ngyqQjvexKS/Eps0zJAAXzTFOKKh5tWHv2dV1bOK",
-    "accessKeyId": "AKIARXSDAEBF3GIDK2VY"
+    "secretAccessKey": "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",
+    "accessKeyId": "AKIAZLDRU2VASVLM7AI7"
 }
 
 export default aws;

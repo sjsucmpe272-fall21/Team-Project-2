@@ -2,6 +2,8 @@ import axios from 'axios';
 import { uploadFile } from 'react-s3';
 import config from '../util';
 import  {useState} from "react";
+import Cards from './cards';
+import '../App.css';
 
 export default function Landing() {
     const [name, setName] = useState('');
@@ -42,7 +44,8 @@ const  onFromSubmit = event => {
   .then((data)=>{
       console.log(data.location);
     //   this.setState({ resumeUrl: data.location });
-      setResumeURL(data.location)
+      setResumeURL(data.location);
+      console.log('-->', setResumeURL);
       
   })
   .catch((err)=>{
@@ -80,32 +83,9 @@ const  onFromSubmit = event => {
             <div className="result_class">
                 {items.length > 0 &&
                     <div className="container">
-                        <div className="card__container">
-                            <div className="card">
-                                <div className="card__content">
-                                    <h3 className="card__header">Amazon</h3>
-                                    <h4 className="card__header2">Front End Developer</h4>
-                                    <p className="card__info">HTML, CSS JavaScript, react, Node</p>
-                                    <button className="card__button">Apply Now</button>
-                                </div>
-                            </div>
-                            <div className="card">
-                                <div className="card__content">
-                                    <h3 className="card__header">Microsoft</h3>
-                                    <h4 className="card__header2">Azure Developer</h4>
-                                    <p className="card__info">Java, Azure, Cloud, Python scripting</p>
-                                    <button className="card__button">Apply Now</button>
-                                </div>
-                            </div>
-                            <div className="card">
-                                <div className="card__content">
-                                    <h3 className="card__header">IBM</h3>
-                                    <h4 className="card__header2">data Scientist</h4>
-                                    <p className="card__info">Pyhton, R, Machine Learning, Ai</p>
-                                    <button className="card__button">Apply Now</button>
-                                </div>
-                            </div>
-                        </div>
+                        
+                           <Cards/>
+                        
                     </div>
                 }
             </div>
