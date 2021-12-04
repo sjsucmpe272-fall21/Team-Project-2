@@ -2,6 +2,7 @@ import axios from 'axios';
 import { uploadFile } from 'react-s3';
 import config from '../util';
 import  {useState} from "react";
+
 import {ProgressBar} from "react-progressbar-fancy";
 import { AppBar, Button, Card, Container, TextField, Typography } from '@material-ui/core';
 import  {makeStyles}  from '@material-ui/core/';
@@ -28,6 +29,7 @@ const useStyles= makeStyles({
         fontSize: 20
       }
 })
+
 
 
 const answer=
@@ -110,6 +112,7 @@ export default function Landing() {
     
         const uplaod = e => {
     
+
             console.log(e.target.files[0].name);
             let fileName = e.target.files[0].name;
             let str = fileName.substring(0, fileName.length - 4)
@@ -134,6 +137,41 @@ export default function Landing() {
                         return _difference
 
                     }
+
+ 
+    
+    console.log("&&**&&**&&**&&",diff);
+      
+  })
+  .catch((err)=>{
+    alert('Inside this');
+      alert(err);
+
+
+      const setA = answer.jobPostingsList[0].keywords.split(" ");
+      const setB = answer.userskills.split(" ");
+      function difference(setB, setA){
+        let _difference = new Set(setA)
+        for (let elem of setB) {
+            _difference.delete(elem)
+        }
+        return _difference
+
+        }
+        const diff = difference(setA,setB);
+      
+    
+    console.log("&&**&&**&&**&&",diff);
+  })
+
+
+  
+
+    
+    
+
+}
+
     
                     console.log("&&**&&**&&**&&", diff);
 
@@ -264,10 +302,22 @@ export default function Landing() {
                                     <Cards />
                         
 
+
                                 </div>
                             }
                         </div>
                     </Container>
+
+            <div className="result_class">
+                {items.length > 0 &&
+                    <div className="container">
+                        
+                           <Cards/>
+                        
+                    </div>
+                }
+            </div>
+
        
                 </Container>
             </div>
