@@ -1,15 +1,10 @@
-import './App.css';
+import  './App.css';
 import React from 'react';
-import axios from 'axios';
-import { uploadFile } from 'react-s3';
 
-const config = {
-    bucketName: '272projectgroup2',
-    dirName: 'Resume', 
-    region: 'us-east-1',
-    accessKeyId: 'AKIARXSDAEBF3GIDK2VY',
-    secretAccessKey: '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',
-}
+import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import Landing from './components/landing';
+import Login from './components/user/login';
+import Signup from './components/user/signup';
 // import imageUpload from './components/imageUpload';
 
 const answer=
@@ -66,119 +61,30 @@ const answer=
 
 
 export default class PersonList extends React.Component {
-  state = {
-    name: '',
-    location:'',
-    resumeUrl:'',
-    items: []
-  }
+  
 
 
 
-uplaod = e =>{
-    
-  console.log(e.target.files[0]);
-  uploadFile(e.target.files[0], config)
-  .then((data)=>{
-      console.log(data.location);
-      this.setState({ resumeUrl: data.location});
-      
-  })
-  .catch((err)=>{
-    alert('Inside this');
-      alert(err);
-  })
-}
+
 
    ///myArray = [];
-  handleChange = event => {
-    this.setState({ name: event.target.value });
-  }
-  handleChange2 = event => {
-    this.setState({ location: event.target.value });
-    
-  }
-
-  handleSubmit = event => {
-    event.preventDefault();
-
-    const user = {
-      name: this.state.name
-    };
-    console.log(user);
-    axios.get(`https://jsonplaceholder.typicode.com/users`, { user })
-      .then(res => {
-        console.log(res);
-        console.log(res.data);
-        this.setState({ items: res.data });
-        console.log('-->',this.state.items);
-      })
-  }
+ 
 
   render() {
     return (
-      <div>
-
-        
-        <div className="myDiv" >
-        <form onSubmit={this.handleSubmit}>
-          <label className="label_class">
-            Enter your current job:
-          </label>
-          <br/>
-          <input className="input_class" type="text" name="name" onChange={this.handleChange} />
-
-          <label className="label_class">
-            Enter your current Location:
-          </label>
-          <br/>
-          <input className="input_class" type="text" name="location" onChange={this.handleChange2} />
-
-          <label className="label_class">
-            Upload your resume:
-          </label>
-          <input type="file" onChange={this.uplaod}></input>
-               
-          <button className="button_class"type="submit">Search</button>
-        </form>
-        </div>
-
-        <div className="result_class">
-          {this.state.items.length > 0 &&
-            <div className="container">
-            <div className="card__container">
-              <div className="card">
-                <div className="card__content">
-                  <h3 className="card__header">Amazon</h3>
-                  <h4 className="card__header2">Front End Developer</h4>
-                  <p className="card__info">HTML, CSS JavaScript, react, Node</p>
-                  <button className="card__button">Apply Now</button>
-                </div>
-              </div>
-              <div className="card">
-                <div className="card__content">
-                  <h3 className="card__header">Microsoft</h3>
-                  <h4 className="card__header2">Azure Developer</h4>
-                  <p className="card__info">Java, Azure, Cloud, Python scripting</p>
-                  <button className="card__button">Apply Now</button>
-                </div>
-              </div>
-              <div className="card">
-                <div className="card__content">
-                  <h3 className="card__header">IBM</h3>
-                  <h4 className="card__header2">data Scientist</h4>
-                  <p className="card__info">Pyhton, R, Machine Learning, Ai</p>
-                  <button className="card__button">Apply Now</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          }
-        </div>
-       
-        
-
-      </div>
+       <Router>
+        <Switch>
+          <Route exact path="/">
+                <Landing/>
+          </Route>
+          <Route exact path="/login">
+                <Login/>
+          </Route>
+          <Route exact path="/signup">
+                <Signup/>
+                </Route>
+          </Switch>
+        </Router>
     )
   }
 }
