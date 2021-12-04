@@ -6,9 +6,11 @@ import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 import  {makeStyles}  from '@material-ui/core/';
 import Button from '@mui/material/Button';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import  {useState} from "react";
-import {Redirect} from 'react-router';
+import { Redirect } from 'react-router';
+import { useNavigate } from "react-router-dom";
+
 import axios from "axios";
 
 
@@ -25,7 +27,7 @@ export default function Login() {
     const [email, setEmail]= useState('');
     const [password, setPassword]= useState('');
     const [error, setError]= useState('');
-    const history = useHistory();
+    const navigate = useNavigate();
     
     
     useEffect(() => {

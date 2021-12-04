@@ -6,9 +6,10 @@ import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 import  {makeStyles}  from '@material-ui/core/';
 import Button from '@mui/material/Button';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import  {useState} from "react";
 import {Redirect} from 'react-router';
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -27,7 +28,7 @@ export default function Signup() {
     const [password, setPassword]= useState('')
     const [error, setError]= useState('');
     const [email, setEmail]= useState('')
-    const history = useHistory();
+    const navigate = useNavigate();
     
 
     let redirectvar =''

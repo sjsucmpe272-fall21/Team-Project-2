@@ -1,12 +1,12 @@
 
 const config = {
-    bucketName: 'reskill-bucket',
+    bucketName: '272projectgroup2',
    
     region: 'us-east-1',
 
-    accessKeyId: 'AKIARXSDAEBF3GIDK2VY',
-    secretAccessKey: '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'
-
+    accessKeyId: 'AKIARXSDAEBF5BOJYKJO',
+    secretAccessKey: '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'
+    
 }
 
 
