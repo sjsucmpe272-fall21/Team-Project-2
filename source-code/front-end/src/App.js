@@ -1,14 +1,27 @@
 import  './App.css';
 import React from 'react';
 
+
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import Landing from './components/landing';
 import Login from './components/user/login';
 import Signup from './components/user/signup';
-// import imageUpload from './components/imageUpload';
 
+import axios from 'axios';
+import { uploadFile } from 'react-s3';
+import aws from './keys'
+//  const config = {
+//     bucketName: '272projectgroup2',
+//     dirName: 'Resume', 
+//     region: 'us-east-1',
+//     accessKeyId: aws.accessKeyId,
+//     secretAccessKey: aws.secretAccessKey
+// }
+
+// import imageUpload from './components/imageUpload';
+  
 const answer=
-[
+[ 
   {
       "id": 41,
       "desc": null,
@@ -67,8 +80,24 @@ export default class PersonList extends React.Component {
 
 
 
-   ///myArray = [];
+// <<<<<<< temp
+//    ///myArray = [];
  
+// =======
+//     const user = {
+//       name: this.state.name
+//     };
+//     console.log(user);
+//     axios.get(`https://jsonplaceholder.typicode.com/users`, { user })
+//       .then(res => {
+//         console.log(res);
+//         console.log(res.data);
+//         console.log(answer.length);
+//         this.setState({ items: res.data });
+//         console.log('-->',this.state.items);
+//       })
+//   }
+// >>>>>>> main
 
   render() {
     return (

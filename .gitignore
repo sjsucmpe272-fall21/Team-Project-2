@@ -196,3 +196,6 @@ FakesAssemblies/
 
 # Visual Studio 6 workspace options file
 *.opt
+
+#aws secret keys
+Reskill-the-workforce/source-code/front-end/src/keys.js
