@@ -194,6 +194,12 @@ console.log(e.target.files[0])
         let str = fileName.substring(0, fileName.length - 4)
         console.log(str)
         setResumeURL(str)
+        if(process.env.accessKeyId){
+            config.accessKeyId=process.env.accessKeyId;
+        } 
+        if(process.env.secretAccessKey){
+            config.secretAccessKey=process.env.secretAccessKey;
+        } 
         uploadFile(e.target.files[0], config)
             .then((data) => {
                 console.log(data.location);
