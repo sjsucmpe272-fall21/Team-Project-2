@@ -141,7 +141,7 @@ const diff = function difference(answer) {
         console.log(user);
 
         let a = JSON.stringify(user)
-        let res = await axios.post(`http://ec2-18-222-191-210.us-east-2.compute.amazonaws.com:8080/api/jobs/get-jobs-by-allparams`, a, {
+        let res = await axios.post(`https://ec2-18-222-191-210.us-east-2.compute.amazonaws.com:8080/api/jobs/get-jobs-by-allparams`, a, {
             headers: {
                 'Content-Type': 'application/json'
             }
@@ -194,6 +194,8 @@ console.log(e.target.files[0])
         let str = fileName.substring(0, fileName.length - 4)
         console.log(str)
         setResumeURL(str)
+        alert(process.env.accessKeyId);
+        alert(process.env.secretAccessKey);
         if(process.env.accessKeyId){
             config.accessKeyId=process.env.accessKeyId;
         } 
