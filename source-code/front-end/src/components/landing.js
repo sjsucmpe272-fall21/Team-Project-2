@@ -194,8 +194,8 @@ console.log(e.target.files[0])
         let str = fileName.substring(0, fileName.length - 4)
         console.log(str)
         setResumeURL(str)
-        alert(process.env.REACT_APP_accessKeyId);
-        alert(process.env.REACT_APP_secretAccessKey);
+        //alert(process.env.REACT_APP_accessKeyId);
+       // alert(process.env.REACT_APP_secretAccessKey);
 
         if(process.env.REACT_APP_accessKeyId){
             config.accessKeyId=process.env.REACT_APP_accessKeyId;
@@ -231,8 +231,8 @@ console.log("&&**&&**&&**&&",diff);
     
 })
 .catch((err)=>{
-alert('Inside this error222');
-    alert(err);
+//alert('Inside this error222');
+    //alert(err);
     console.log(err);
     console.log(err.body);
     
@@ -254,7 +254,7 @@ alert('Inside this error222');
             })
             .catch((err) => {
                 // alert('Inside this');
-                alert(err);
+               // alert(err);
 
 
                 const setA = answer.jobPostingsList[0].keywords.split(" ");
