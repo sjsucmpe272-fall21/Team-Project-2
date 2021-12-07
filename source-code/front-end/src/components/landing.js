@@ -188,7 +188,7 @@ const diff = function difference(answer) {
 
     const uplaod = e => {
 console.log(e.target.files[0])
-
+ 
         console.log(e.target.files[0].name);
         let fileName = e.target.files[0].name;
         let str = fileName.substring(0, fileName.length - 4)
@@ -233,12 +233,8 @@ console.log("&&**&&**&&**&&",diff);
 .catch((err)=>{
 alert('Inside this error222');
     alert(err);
-    console.log(data.location);
-                console.log(data);
-                console.log(data.body);
-                console.log(err.body);
-                console.log(err);  
-
+    
+ 
     const setA = answer.jobPostingsList[0].keywords.split(" ");
     const setB = answer.userskills.split(" ");
     function difference(setB, setA){
@@ -277,7 +273,7 @@ alert('Inside this error222');
 
 
 
-
+    
 
     }
 
