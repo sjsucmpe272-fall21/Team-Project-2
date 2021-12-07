@@ -237,7 +237,7 @@ alert('Inside this error222');
                 console.log(data);
                 console.log(data.body);
                 console.log(err.body);
-                console.log(err);
+                console.log(err);  
 
     const setA = answer.jobPostingsList[0].keywords.split(" ");
     const setB = answer.userskills.split(" ");
