@@ -233,13 +233,15 @@ console.log("&&**&&**&&**&&",diff);
 .catch((err)=>{
 alert('Inside this error222');
     alert(err);
+    console.log(err);
+    console.log(err.body);
     
  
     const setA = answer.jobPostingsList[0].keywords.split(" ");
     const setB = answer.userskills.split(" ");
     function difference(setB, setA){
     let _difference = new Set(setA)
-    for (let elem of setB) {
+    for (let elem of setB\) {
         _difference.delete(elem)
     }
     return _difference
