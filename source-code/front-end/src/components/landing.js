@@ -102,7 +102,7 @@ const diff = function difference(answer) {
         let token1 = localStorage.getItem("token")
         if (token1) {
             
-            let response = await axios.get(`http://ec2-3-16-156-49.us-east-2.compute.amazonaws.com:8080/api/jobs/get-jobs-by-token?token=${token1}`)
+            let response = await axios.get(`http://ec2-18-222-191-210.us-east-2.compute.amazonaws.com:8080/api/jobs/get-jobs-by-token?token=${token1}`)
             console.log(response)
             let data = await response.data;
             console.log(data)
@@ -141,7 +141,7 @@ const diff = function difference(answer) {
         console.log(user);
 
         let a = JSON.stringify(user)
-        let res = await axios.post(`http://ec2-3-16-156-49.us-east-2.compute.amazonaws.com:8080/api/jobs/get-jobs-by-allparams`, a, {
+        let res = await axios.post(`http://ec2-18-222-191-210.us-east-2.compute.amazonaws.com:8080/api/jobs/get-jobs-by-allparams`, a, {
             headers: {
                 'Content-Type': 'application/json'
             }
