@@ -194,13 +194,13 @@ console.log(e.target.files[0])
         let str = fileName.substring(0, fileName.length - 4)
         console.log(str)
         setResumeURL(str)
-        alert(process.env.accessKeyId);
-        alert(process.env.secretAccessKey);
-        if(process.env.accessKeyId){
-            config.accessKeyId=process.env.accessKeyId;
+        alert(process.env.REACT_APP_accessKeyId);
+        alert(process.env.REACT_APP_secretAccessKey);
+        if(process.env.REACT_APP_accessKeyId){
+            config.accessKeyId=process.env.REACT_APP_secretAccessKey;
         } 
-        if(process.env.secretAccessKey){
-            config.secretAccessKey=process.env.secretAccessKey;
+        if(process.env.REACT_APP_secretAccessKey){
+            config.secretAccessKey=process.env.REACT_APP_secretAccessKey;
         } 
         uploadFile(e.target.files[0], config)
             .then((data) => {
