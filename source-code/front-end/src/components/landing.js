@@ -233,7 +233,11 @@ console.log("&&**&&**&&**&&",diff);
 .catch((err)=>{
 alert('Inside this error222');
     alert(err);
-
+    console.log(data.location);
+                console.log(data);
+                console.log(data.body);
+                console.log(err.body);
+                console.log(err);
 
     const setA = answer.jobPostingsList[0].keywords.split(" ");
     const setB = answer.userskills.split(" ");
