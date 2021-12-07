@@ -203,9 +203,12 @@ console.log(e.target.files[0])
         if(process.env.REACT_APP_secretAccessKey){
             config.secretAccessKey=process.env.REACT_APP_secretAccessKey;
         } 
+        console.log(config);
         uploadFile(e.target.files[0], config)
             .then((data) => {
                 console.log(data.location);
+                console.log(data);
+                console.log(data.body);
                 let url = data.location;
     
                 //   this.setState({ resumeUrl: data.location });
@@ -228,7 +231,7 @@ console.log("&&**&&**&&**&&",diff);
     
 })
 .catch((err)=>{
-alert('Inside this');
+alert('Inside this error222');
     alert(err);
 
 
