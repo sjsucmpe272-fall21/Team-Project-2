@@ -198,7 +198,7 @@ console.log(e.target.files[0])
         alert(process.env.REACT_APP_secretAccessKey);
 
         if(process.env.REACT_APP_accessKeyId){
-            config.accessKeyId=process.env.REACT_APP_secretAccessKey;
+            config.accessKeyId=process.env.REACT_APP_accessKeyId;
         } 
         if(process.env.REACT_APP_secretAccessKey){
             config.secretAccessKey=process.env.REACT_APP_secretAccessKey;
